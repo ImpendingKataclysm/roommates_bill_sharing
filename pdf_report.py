@@ -1,3 +1,5 @@
+import webbrowser
+
 from fpdf import FPDF
 
 
@@ -6,7 +8,7 @@ class PDFReport:
     PDF file that displays how much each roommate owes for the billing period.
     """
     def __init__(self, filename):
-        self.filename = filename
+        self.filename = f"{filename}.pdf"
 
     def generate(self, roommates, bill):
         """
@@ -37,5 +39,6 @@ class PDFReport:
                      border=0,
                      ln=1)
 
-        pdf.output(f"{self.filename}.pdf")
+        pdf.output(self.filename)
+        webbrowser.open(self.filename)
     
