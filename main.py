@@ -3,6 +3,8 @@ from pdf_report import PDFReport
 from roommate import Roommate
 
 if __name__ == "__main__":
+    print("Welcome to the bill-sharing app! We make bill-sharing fair and simple.")
+    print("To get started, enter a bill amount. Then enter the information for each roommate who will be paying.")
     # Get Bill data
     bill_amount_usd = float(input("Enter bill amount: "))
     bill_period = input("Enter the billing period: ")
