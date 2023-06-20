@@ -1,6 +1,7 @@
 from bill import Bill
 from pdf_report import PDFReport
 from roommate import Roommate
+from filesharer import FileSharer
 
 if __name__ == "__main__":
     print("Welcome to the bill-sharing app! We make bill-sharing fair and simple.")
@@ -32,3 +33,6 @@ if __name__ == "__main__":
 
     pdf_report = PDFReport(bill.period)
     pdf_report.generate(roommates, bill)
+
+    file_sharer = FileSharer(filepath=pdf_report.filename)
+    print(file_sharer.share())
