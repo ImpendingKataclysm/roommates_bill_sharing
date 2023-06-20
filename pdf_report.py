@@ -24,9 +24,12 @@ class PDFReport:
         pdf.cell(w=150, h=40, txt=bill.period, border=1, ln=1)
 
         for roommate in roommates:
+            amount_due = str(roommate.get_amount_to_pay(bill, roommates))
             pdf.cell(w=100, h=40, txt=roommate.name, border=1)
-            pdf.cell(w=150, h=40, txt=str(roommate.get_amount_to_pay(bill, roommates)),
-                     border=1, ln=1)
+            pdf.cell(w=150, h=40,
+                     txt=amount_due,
+                     border=1,
+                     ln=1)
 
         pdf.output(f"{self.filename}.pdf")
     
