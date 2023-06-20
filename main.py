@@ -3,15 +3,25 @@ from pdf_report import PDFReport
 from roommate import Roommate
 
 if __name__ == "__main__":
-    bill = Bill(120, "June 2023")
-    roommates = []
-    roommate1 = Roommate("John", days_home=20)
-    roommate2 = Roommate("Mary", days_home=25)
-    roommate3 = Roommate("Joe", days_home=28)
+    # Get Bill data
+    bill_amount_usd = float(input("Enter bill amount: "))
+    bill_period = input("Enter the billing period: ")
+    bill = Bill(bill_amount_usd, bill_period)
 
-    roommates.append(roommate1)
-    roommates.append(roommate2)
-    roommates.append(roommate3)
+    # Get Roommate data
+    roommates = []
+
+    while True:
+        roommate_name = input("Enter a roommate's name: ")
+        roommate_days_home = int(input(f"How many days did they live here during {bill.period}? "))
+        roommate = Roommate(roommate_name, roommate_days_home)
+
+        roommates.append(roommate)
+
+        add_another = input("Add another roommate? (Y/N) ").lower().strip()
+
+        if add_another == 'n' or add_another == 'no':
+            break
 
     print(f"Total due for {bill.period}: {bill.amount}")
 
