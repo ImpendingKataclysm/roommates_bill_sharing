@@ -1,4 +1,5 @@
 import webbrowser
+import os
 
 from fpdf import FPDF
 
@@ -20,7 +21,7 @@ class PDFReport:
         """
         pdf = FPDF(orientation='P', unit='pt', format='A4')
         pdf.add_page()
-        pdf.image("house.png", w=50, h=50)
+        pdf.image("files/house.png", w=50, h=50)
 
         pdf.set_font(family='Arial', size=24, style='B')
         pdf.cell(w=0, h=80, txt="Roommates Bill", border=1, align='C', ln=1)
@@ -39,6 +40,7 @@ class PDFReport:
                      border=0,
                      ln=1)
 
+        os.chdir("files")
         pdf.output(self.filename)
         webbrowser.open(self.filename)
     
