@@ -13,7 +13,7 @@ if __name__ == "__main__":
     roommates.append(roommate2)
     roommates.append(roommate3)
 
-    print(bill.amount, bill.period)
+    print(f"Total due for {bill.period}: {bill.amount}")
 
     for roommate in roommates:
         print(f"{roommate.name} pays {roommate.get_amount_to_pay(bill, roommates)}")
