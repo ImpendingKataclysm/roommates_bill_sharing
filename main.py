@@ -16,8 +16,7 @@ if __name__ == "__main__":
     print(bill.amount, bill.period)
 
     for roommate in roommates:
-        print(roommate.name, roommate.days_home)
-        print(roommate.get_amount_to_pay(bill, roommates))
+        print(f"{roommate.name} pays {roommate.get_amount_to_pay(bill, roommates)}")
 
     pdf_report = PDFReport(bill.period)
     pdf_report.generate(roommates, bill)
